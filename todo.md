@@ -4,70 +4,65 @@
 **Validation:** Verify container exists in DOM via browser inspector  
 **Files:** src/components/Frame.tsx
 
-[ ] 2. Implement client-side state initialization using localStorage  
-**Validation:** `localStorage.getItem('trackerState')` returns valid object  
-**Files:** client.js
+[x] 2. Implement client-side state initialization using SDK  
+**Validation:** Context and state management working through Frame SDK  
+**Files:** src/components/Frame.tsx
 
-[ ] 3. Set up CSS foundation for UI components  
-**Validation:** Body background and container padding visible  
-**Files:** style.css
+[x] 3. Set up CSS foundation for UI components  
+**Validation:** Tailwind styles applied and responsive layout working  
+**Files:** src/components/Frame.tsx, src/components/ui/*
 
-[ ] 4. Create state persistence methods in stateManager.js  
-**Validation:** Manual state edits persist through page reload  
-**Files:** stateManager.js
+[x] 4. Create state persistence methods using Frame SDK  
+**Validation:** State persists through SDK context  
+**Files:** src/components/Frame.tsx
 
-[ ] 5. Implement UTC midnight detection and daily rollover  
-**Validation:** New day creates fresh dailyTotal entry  
-**Files:** timeUtils.js
+[ ] 5. Implement notification system integration  
+**Validation:** Notifications sent and received through Farcaster  
+**Files:** src/components/Frame.tsx
 
-[ ] 6. Add CRC32 checksum generation for state validation  
-**Validation:** Tampered state triggers console warning  
-**Files:** stateManager.js
+[ ] 6. Add error boundary and fallback UI  
+**Validation:** Graceful error handling with user feedback  
+**Files:** src/components/ErrorBoundary.tsx
 
-### API
-[ ] 1. Create edge function endpoint for duration validation  
-**Validation:** GET request returns 501 Not Implemented  
-**Files:** api/compute.js
+### Farcaster Integration
+[x] 1. Set up Frame SDK initialization  
+**Validation:** SDK loads and context available  
+**Files:** src/components/Frame.tsx
 
-[ ] 2. Implement server-side timestamp validation  
-**Validation:** Returns 400 for invalid time ranges  
-**Files:** api/compute.js
+[x] 2. Implement frame addition flow  
+**Validation:** Frame can be added to Farcaster client  
+**Files:** src/components/Frame.tsx
+
+[ ] 3. Add notification permissions handling  
+**Validation:** Can request and manage notification permissions  
+**Files:** src/components/Frame.tsx
 
 ### UI
-[ ] 1. Add toggle button with .running/.stopped classes  
-**Validation:** Button visually changes on class toggle  
-**Files:** index.html, style.css
+[x] 1. Create example card component  
+**Validation:** Card renders with title and content  
+**Files:** src/components/Frame.tsx
 
-[ ] 2. Connect button click to state toggle (no persistence)  
-**Validation:** Click changes button state temporarily  
-**Files:** client.js
+[ ] 2. Implement loading states  
+**Validation:** Loading indicator shows during SDK initialization  
+**Files:** src/components/Frame.tsx
 
-[ ] 3. Create animated time display container  
-**Validation:** Shows 00:00:00 on initial load  
-**Files:** index.html, client.js
+[ ] 3. Add interactive elements  
+**Validation:** Buttons and inputs respond to user actions  
+**Files:** src/components/Frame.tsx
 
-[ ] 4. Implement requestAnimationFrame update loop  
-**Validation:** Time updates every second (±50ms)  
-**Files:** client.js
+[ ] 4. Create notification UI components  
+**Validation:** Notification requests/status visible to user  
+**Files:** src/components/NotificationUI.tsx
 
-[ ] 5. Add progress bar with pauseable CSS animation  
-**Validation:** Animation freezes when tab inactive  
-**Files:** style.css, client.js
-
-[ ] 6. Create floating save indicator component  
-**Validation:** Briefly appears after localStorage.setItem  
-**Files:** style.css, client.js
-
-[ ] 7. Build error overlay with restoration controls  
-**Validation:** forceReload() clears broken state  
-**Files:** index.html, client.js
+[ ] 5. Implement dark mode support  
+**Validation:** UI responds to system/user theme preference  
+**Files:** src/components/Frame.tsx
 ```
 
 **Dependency Flow:**  
-1. Core foundation → API endpoints → UI components  
-2. State persistence before UI interactions  
-3. Time utilities before progress animations  
-4. Validation systems after core persistence  
+1. SDK Integration → State Management → UI Components
+2. Error Handling → Notification System
+3. Theme Support → UI Polish
 
 **Critical Path:**  
-HTML Frame → State Init → Button Wiring → Time Display → API Integration
+Frame SDK Setup → State Management → Notification Integration → UI Polish
