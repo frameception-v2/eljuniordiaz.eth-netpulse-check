@@ -1,8 +1,8 @@
 ```markdown
 ### Core
-[ ] 1. Create base HTML frame with empty state container  
+[x] 1. Create base HTML frame with empty state container  
 **Validation:** Verify container exists in DOM via browser inspector  
-**Files:** index.html
+**Files:** src/components/Frame.tsx
 
 [ ] 2. Implement client-side state initialization using localStorage  
 **Validation:** `localStorage.getItem('trackerState')` returns valid object  
